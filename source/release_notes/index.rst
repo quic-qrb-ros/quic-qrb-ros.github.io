@@ -23,6 +23,7 @@ Updates including:
 - Introduction of the new repository `qrb_ros_imu`, enabling low-latency access to the IMU sensor mounted on the Sensor DSP.
 - Launch of the new repository `qrb_ros_transport`, featuring a hardware-accelerated transport mechanism based on dmabuf.
 - Release of the new repository `qrb_ros_camera`, facilitating easy access to the Qualcomm CameraX system via ROS, with hardware acceleration support.
+- Debut of the new repository `qrb_ros_colorspace_convert`, designed to convert YUV to RGB using Qualcomm GPU, with hardware acceleration support.
 
 
 Limitations
