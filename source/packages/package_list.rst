@@ -15,5 +15,5 @@
       - `qrb_ros_transport <https://github.com/quic-qrb-ros/qrb_ros_transport>`_
       - Zero Copy ROS Transport for Qualcomm platforms.
     * - :doc:`ColorSpace Convert </packages/qrb_ros_colorspace_convert/index>`
-      - `qrb_ros_colorspace_convert <https://github.com/quic-qrb-ros/qrb_ros_colorspace_convert>`_
+      - `qrb_ros_colorspace_convert <https://github.com/quic-qrb-ros/qrb_ros_color_space_convert>`_
       - Qualcomm Robotics platform Color space conversion ROS node.
