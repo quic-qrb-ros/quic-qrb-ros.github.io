@@ -13,3 +13,5 @@ Use this index to find the QRB ROS packages you need and examples on how to use 
     ./qrb_ros_camera/index.rst
     ./qrb_ros_transport/index.rst
     ./qrb_ros_colorspace_convert/index.rst
+    ./qrb_ros_benchmark/index.rst
+    ./qrb_ros_nn_inference/index.rst

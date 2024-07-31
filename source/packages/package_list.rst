@@ -17,3 +17,9 @@
     * - :doc:`ColorSpace </packages/qrb_ros_colorspace_convert/index>`
       - `qrb_ros_colorspace_convert <https://github.com/quic-qrb-ros/qrb_ros_colorspace_convert>`_
       - Qualcomm Robotics platform Color space conversion ROS node.
+    * - :doc:`Benchmark Tools</packages/qrb_ros_benchmark/index>`
+      - `qrb_ros_benchmark <https://github.com/quic-qrb-ros/qrb_ros_benchmark>`_
+      - Qualcomm Robotics platform Benchmark Tools.
+    * - :doc:`NN Inference </packages/qrb_ros_nn_inference/index>`
+      - `qrb_ros_nn_inference <https://github.com/quic-qrb-ros/qrb_ros_nn_inference>`_
+      - Qualcomm Robotics NatureNetwork Inference ROS Node.
