@@ -6,10 +6,10 @@ Overview
 --------
 
 Qualcomm Sensor See Framework provides IMU data that obtained from the IMU driver via DSP side.
-``qrb_ros_imu`` use this framework to get the latest imu data with high performance.
+``qrb_ros_imu`` uses this framework to get the latest IMU data with high performance.
 
-With Qualcomm Sensor See Framework, data can achieve zero copy performance when coming out of the driver.
-qrb_sensor_client, which is a dynamic library, is base on this framework for helping developers to utilize this feature.
+With the Qualcomm Sensor See Framework, data can achieve zero copy performance when coming out of the driver.
+``qrb_sensor_client``, which is a dynamic library, is based on this framework for helping developers to utilize this feature.
 This will greatly reduce the latency between the ROS node and the driver.
 This time consumption measurement is around 0.4ms, which is several tens of times 
 better than the performance where copying occurred before.
@@ -18,16 +18,16 @@ IMU data is widely used in robot localization, such as: SLAM(Simultaneous locali
 These localization applications have more precise performance after integrating IMU data to predict position.
 
 This package leverages type adaption and intra process communication to optimize message formats and dramatically 
-accelerate communication between participating nodes.
+accelerate the communication between participating nodes.
 
 Build
 -----
 
 Currently, we only support use QCLINUX to build
 
-1. Setup environments follow this document 's `Set up the cross-compile environment <https://docs.qualcomm.com/bundle/publicresource/topics/80-65220-2/develop-your-first-application_6.html>`__.
+1. Set up environment following the `Set up the cross-compile environment <https://docs.qualcomm.com/bundle/publicresource/topics/80-65220-2/develop-your-first-application_6.html>`_ of the *QIRP User Guide*.
 
-2. Create ``ros_ws`` directory in ``<qirp_decompressed_workspace>/qirp-sdk/``
+2. Create ``ros_ws`` directory in ``<qirp_decompressed_workspace>/qirp-sdk/``.
 
 3. Clone this repository under ``<qirp_decompressed_workspace>/qirp-sdk/ros_ws``
     
@@ -37,7 +37,7 @@ Currently, we only support use QCLINUX to build
     git clone https://github.com/quic-qrb-ros/qrb_ros_transport.git
     git clone https://github.com/quic-qrb-ros/qrb_ros_imu.git
 
-4. Build this project
+4. Build this project.
 
 .. code:: bash
     
@@ -51,7 +51,7 @@ Currently, we only support use QCLINUX to build
       -DCMAKE_PREFIX_PATH=$(pwd)/install/share \
       -DBUILD_TESTING=OFF
 
-5. Push to the device & Install
+5. Push to the device and install.
 
 .. code:: bash
     
@@ -66,7 +66,8 @@ Run
 
 This package supports running it directly from the command or by dynamically adding it to the ros2 component container.
 
-a. Run with command
+Run with command
+~~~~~~~~~~~~~~~~
 
 1. Source this file to set up the environment on your device:
 
@@ -84,7 +85,8 @@ a. Run with command
 
     (ssh) ros2 run qrb_ros_imu imu_node
 
-b. Dynamically add it to the ros2 component container
+Dynamically add it to the ros2 component container
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -107,7 +109,7 @@ Packages
 
     sensor_service <./sensor_service>
 
-Supported Platforms
+Supported platforms
 -------------------
 
 .. include:: ../common/supported_platforms.rst
@@ -120,8 +122,9 @@ Updates
 
     * - Date
       - Changes
-
     * - 2024-7-16
-      - Add Build in QCLINUX SDK
+      - Added build in QCLINUX SDK
     * - 2024-2-5
       - Initial release
+   
+      

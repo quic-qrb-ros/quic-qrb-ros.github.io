@@ -1,21 +1,21 @@
-First Example
+First example
 #############
 
 .. contents:: Table of Contents
    :depth: 2
    :local:
 
-This tutorial will teach you how to run the first QRB ROS application.
-It is intended for users who want to quickly running the camera on the board 
-and being able to use rviz on UbuntuPC on the same LAN to see the real-time 
+This tutorial teaches you how to run the first QRB ROS application.
+It is intended for users who want to quickly run the camera on the board 
+and get ready to use Rviz on an Ubuntu PC on the same LAN to see the real-time 
 output of the camera.
 
 Prerequisites
 -------------
 
-- Setup your environment
+- Set up your environment. See :doc:`/getting_started/environment_setup`.
 
-- Setup QIRP SDK
+- Set up QIRP SDK.
 
 Running camera
 --------------
@@ -23,9 +23,9 @@ Running camera
 Download Code
 ^^^^^^^^^^^^^
 
-You need to create a path to store the code on the Host PC.
+1. Create a path to store the code on the Host PC.
 
-Then, you need to use these cmd to clone the code repository in this path.
+2. Run the following commands to clone the code repository in this path.
 
 .. code-block:: bash
 
@@ -37,9 +37,9 @@ Then, you need to use these cmd to clone the code repository in this path.
 Build
 ^^^^^
 
-You need to set up qirp-sdk environment before build these code.
+Ensure that you have set up the QIRP SDK environment before building the code.
 
-Then, you can use these cmd to build these code in QIRP SDK.
+Then, you can use the following commands to build the code in QIRP SDK.
 
 .. code-block:: bash
 
@@ -55,10 +55,10 @@ Then, you can use these cmd to build these code in QIRP SDK.
       -DCMAKE_PREFIX_PATH=$(pwd)/install/share \
       -DBUILD_TESTING=OFF
 
-Push & Install
-^^^^^^^^^^^^^^
+Push and install
+^^^^^^^^^^^^^^^^
 
-you can use these cmd to push & install the output on the device.
+Run these commands to push and install the output SDK on the device.
 
 .. code-block:: bash
 
@@ -163,16 +163,17 @@ Thirdly, we will use these cmd to run it on the device.
 Get the realtime image in Ubuntu PC
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We need to prepare an Ubuntu PC to be on the same LAN as the device.
+**Prerequisites**
 
-We need to install ROS2 Desktop on Ubuntu PC follow `Install ROS <https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debians.html>`__
+- Set up an Ubuntu PC to be on the same LAN as the device.
+- Install ROS2 Desktop on the Ubuntu PC following steps in `Install ROS <https://docs.ros.org/en/rolling/Installation/Ubuntu-Install-Debians.html>`_.
 
-Then, we can use these cmd in the first terminal to decompressed the image.
+1. Use these commands in the first terminal to decompress the image.
 
-.. code-block:: bash
+    .. code-block:: bash
 
-    source /opt/ros/<ros-version>/setup.sh
-    export ROS_DOMAIN_ID=1
-    ros2 run image_transport republish compressed raw --ros-args -r in/compressed:=/image_compressed -r out:=/image_repub
+        source /opt/ros/<ros-version>/setup.sh
+        export ROS_DOMAIN_ID=1
+        ros2 run image_transport republish compressed raw --ros-args -r in/compressed:=/image_compressed -r out:=/image_repub
 
-Last, we can can obtain real-time images from image_repub topic in rviz2.
+2. You can obtain real-time images from the ``image_repub`` topic in Rviz2.

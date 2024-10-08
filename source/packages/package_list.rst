@@ -14,6 +14,9 @@
     * - :doc:`Transport </packages/qrb_ros_transport/index>`
       - `qrb_ros_transport <https://github.com/quic-qrb-ros/qrb_ros_transport>`_
       - Zero Copy ROS Transport for Qualcomm platforms.
+    * - :doc:`Image Resize </packages/qrb_ros_image_resize/index>`
+      - `qrb_ros_image_resize <https://github.com/quic-qrb-ros/qrb_ros_image_resize>`_
+      - Qualcomm Robotics platform Image Resize ROS node.
     * - :doc:`ColorSpace Convert </packages/qrb_ros_colorspace_convert/index>`
       - `qrb_ros_color_space_convert <https://github.com/quic-qrb-ros/qrb_ros_color_space_convert>`_
       - Qualcomm Robotics platform Color space conversion ROS node.
@@ -23,3 +26,12 @@
     * - :doc:`NN Inference </packages/qrb_ros_nn_inference/index>`
       - `qrb_ros_nn_inference <https://github.com/quic-qrb-ros/qrb_ros_nn_inference>`_
       - Qualcomm Robotics NatureNetwork Inference ROS Node.
+    * - :doc:`libqrc </packages/libqrc/index>`
+      - `libqrc <https://github.com/quic-qrb-ros/libqrc>`_
+      - Qualcomm Robotics Communication protocol.
+    * - :doc:`Audio Common </packages/qrb_ros_audio_common/index>`
+      - `qrb_ros_audio_common <https://github.qualcomm.com/QUIC-QRB-ROS/qrb_ros_audio_common>`_
+      - Qualcomm Robotics Audio Common.
+    * - :doc:`robot base </packages/qrb_ros_robot_base/index>`
+      - `qrb_ros_robot_base <https://github.com/quic-qrb-ros/qrb_ros_robot_base>`_
+      - Qualcomm Robotics platform Robot Base ROS Node.
