@@ -129,3 +129,6 @@ Updates
 
     * - 2024/07/17
       - Initial release
+
+    * - 2024/08/26
+      - Update version 1.1.0
