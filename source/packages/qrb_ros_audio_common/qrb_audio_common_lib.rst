@@ -7,8 +7,6 @@ Overview
 
 qrb_audio_common_lib is a library used by qrb_ros_audio_common. It is implemented based on PulseAudio’s API for playback and capture.
 
-.. Note:: When we want to change the sensor 's frame rate, we need modify the configuration file in ``/etc/sensors_info.conf`` and restart sensor service.
-
 Data Struct
 -----------
 
