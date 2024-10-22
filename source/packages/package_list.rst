@@ -35,3 +35,6 @@
     * - :doc:`robot base </packages/qrb_ros_robot_base/index>`
       - `qrb_ros_robot_base <https://github.com/quic-qrb-ros/qrb_ros_robot_base>`_
       - Qualcomm Robotics platform Robot Base ROS Node.
+    * - :doc:`System Monitor </packages/qrb_ros_system_monitor/index>`
+      - `qrb_ros_system_monitor <https://github.com/quic-qrb-ros/qrb_ros_system_monitor>`_
+      - Qualcomm Robotics System Monitor ROS node.
