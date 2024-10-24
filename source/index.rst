@@ -23,3 +23,4 @@ List of packages
    getting_started/index.rst
    packages/index.rst
    release_notes/index.rst
+   the_QRBROS_project/index.rst
