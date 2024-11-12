@@ -38,3 +38,6 @@
     * - :doc:`System Monitor </packages/qrb_ros_system_monitor/index>`
       - `qrb_ros_system_monitor <https://github.com/quic-qrb-ros/qrb_ros_system_monitor>`_
       - Qualcomm Robotics System Monitor ROS node.
+    * - :doc:`Manipulator </packages/qrb_ros_manipulator/index>`
+      - `qrb_ros_manipulator <https://github.com/quic-qrb-ros/qrb_ros_manipulator>`_
+      - Qualcomm Robotics manipulator ROS node.
