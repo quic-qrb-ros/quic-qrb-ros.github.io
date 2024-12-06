@@ -9,7 +9,7 @@ QRB ROS Documents: [quic-qrb-ros.github.io](https://quic-qrb-ros.github.io)
 Install sphinx and themes
 
 ```bash
-sudo pip install sphinx sphinx-rtd-theme
+sudo pip install sphinx sphinx-rtd-theme sphinx-tabs
 ```
 
 Build and generate html
