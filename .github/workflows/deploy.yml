@@ -24,8 +24,8 @@ jobs:
           fetch-depth: 0
       - name: Fetch all branches
         run: |
-          git fetch --all --tags
-          git branch -a
+          git checkout remotes/origin/humble -b humble 
+          git checkout main
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
