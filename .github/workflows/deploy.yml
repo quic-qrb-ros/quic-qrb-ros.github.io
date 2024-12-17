@@ -1,6 +1,9 @@
 name: Generate HTML and deploy
 
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches:
+      - main
 
 permissions:
   contents: read
