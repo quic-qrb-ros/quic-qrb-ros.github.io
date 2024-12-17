@@ -24,8 +24,13 @@ jobs:
           fetch-depth: 0
       - name: Fetch all branches
         run: |
-          git checkout remotes/origin/humble -b humble 
-          git checkout main
+          for remote in $(git branch -r | grep -v '\->'); do
+            branch=${remote#origin/}
+            if [ -z "$(git branch --list $branch)" ]; then
+              git branch --track $branch $remote
+            else
+              echo "Branch $branch already exists, skipping."
+            fi
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
