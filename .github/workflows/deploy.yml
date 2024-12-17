@@ -27,10 +27,10 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Sphinx build
         run: |
-          sphinx-multiversion source build
+          sphinx-multiversion source build/html
       - name: Create index.html
         run: |
-          cp source/_templates/index.html build/html/index.html  
+          cp source/_templates/index.html build/html/ 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
