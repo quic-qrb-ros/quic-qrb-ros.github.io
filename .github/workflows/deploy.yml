@@ -31,6 +31,7 @@ jobs:
             else
               echo "Branch $branch already exists, skipping."
             fi
+          done
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
