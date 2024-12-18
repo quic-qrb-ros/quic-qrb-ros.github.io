@@ -6,6 +6,15 @@ a:visited {
     color: #3253dc;
 }
 
+.pre {
+    color: #3253dc;
+}
+
+.wy-nav-top {
+    background: white;
+    color: black;
+}
+
 .wy-nav-side {
     background: white;
     color: black;
