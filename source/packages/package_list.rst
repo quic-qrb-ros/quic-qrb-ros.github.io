@@ -32,6 +32,9 @@
     * - :doc:`Audio Common </packages/qrb_ros_audio_common/index>`
       - `qrb_ros_audio_common <https://github.com/quic-qrb-ros/qrb_ros_audio_common>`_
       - Qualcomm Robotics Audio Common.
+    * - :doc:`Audio Service </packages/qrb_ros_audio_service/index>`
+      - `qrb_ros_audio_service <https://github.com/quic-qrb-ros/qrb_ros_audio_service>`_
+      - Qualcomm Robotics Audio Service.
     * - :doc:`robot base </packages/qrb_ros_robot_base/index>`
       - `qrb_ros_robot_base <https://github.com/quic-qrb-ros/qrb_ros_robot_base>`_
       - Qualcomm Robotics platform Robot Base ROS Node.
