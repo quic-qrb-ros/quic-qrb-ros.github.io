@@ -36,12 +36,17 @@ jobs:
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme sphinx-tabs sphinx-multiversion sphinx-design restructuredtext-lint
+          pip install sphinx sphinx_rtd_theme sphinx-tabs sphinx-multiversion sphinx-design proselint
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Lint reStructuredText files
+      - name: Check grammar with proselint
         run: |
-          rst-lint source/**/*.rst
+          for branch in $(git branch -r | grep -v '\->' | sed 's|origin/||'); do
+            git checkout $branch
+            for file in $(find source -name "*.rst"); do
+              proselint $file || true
+            done
+          done
       - name: Sphinx build
         run: |
           sphinx-multiversion source build/html 2>&1 | tee sphinx-output.log
