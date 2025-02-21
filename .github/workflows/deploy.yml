@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - jazzy
       - humble
 
 permissions:
@@ -35,12 +36,16 @@ jobs:
       - uses: actions/setup-python@v5
       - name: Install dependencies
         run: |
-          pip install sphinx sphinx_rtd_theme sphinx-tabs sphinx-multiversion sphinx-design
+          pip install sphinx sphinx_rtd_theme sphinx-tabs sphinx-multiversion sphinx-design restructuredtext-lint
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Lint reStructuredText files
+        run: |
+          rst-lint source/**/*.rst
       - name: Sphinx build
         run: |
-          sphinx-multiversion source build/html
+          sphinx-multiversion source build/html 2>&1 | tee sphinx-output.log
+          grep -i "warning" sphinx-output.log && exit 1 || exit 0
       - name: Create index.html
         run: |
           cp source/_templates/index.html build/html/ 

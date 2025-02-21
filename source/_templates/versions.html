@@ -18,7 +18,9 @@
     <dl>
       <dt>Branches</dt>
       {%- for item in versions.branches | reverse %}
-      <dd><a href="{{ item.url }}">{{ item.name }}</a></dd>
+        {%- if item.name != 'main' %}
+          <dd><a href="{{ item.url }}">{{ item.name }}</a></dd>
+        {%- endif %}
       {%- endfor %}
     </dl>
     {%- endif %}
