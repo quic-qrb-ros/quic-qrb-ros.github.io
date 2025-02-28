@@ -54,7 +54,7 @@ jobs:
               "redundancy.phrases": false,
               "jargon.misc": false
             },
-            "max-errors": 100
+            "max-errors": 100,
             "allow": [
               "ROS",
               "ROS 2",
