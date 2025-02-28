@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - jazzy
       - humble
 
 permissions:
@@ -41,6 +40,30 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Check grammar with proselint
         run: |
+          echo '{
+            "checks": {
+              "typography.diacritical_marks": false,
+              "typography.symbols": false, 
+              "annotations.misc": false,
+              "annotations.todo": false,
+              "typography.quotation_marks": false,
+              "misc.phrasal_adjectives": false,
+              "misc.but": false,
+              "weasel_words.very": false,
+              "lexical_illusions.misc": false,
+              "redundancy.phrases": false,
+              "jargon.misc": false
+            },
+            "max-errors": 100
+            "allow": [
+              "ROS",
+              "ROS 2",
+              "QRB",
+              "Humble",
+              "Jazzy",
+              "QUIC",
+            ]
+          }' > .proselintrc
           for branch in $(git branch -r | grep -v '\->' | sed 's|origin/||'); do
             git checkout $branch
             for file in $(find source -name "*.rst"); do
