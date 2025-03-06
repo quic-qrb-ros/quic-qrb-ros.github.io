@@ -89,7 +89,7 @@ QuickStart
                 cd <qirp_decompressed_workspace>/qirp-sdk/ros_ws/install/qrb_ros_imu
                 tar -czvf qrb_ros_imu.tar.gz include lib share
                 ssh root@[ip-addr]
-                (ssh) mount -o remount rw /usr
+                (ssh) mount -o remount rw /
                 scp qrb_ros_imu.tar.gz root@[ip-addr]:/home/
                 ssh ssh root@[ip-addr]
                 (ssh) tar --no-overwrite-dir --no-same-owner -zxf /home/qrb_ros_imu.tar.gz -C /usr/
