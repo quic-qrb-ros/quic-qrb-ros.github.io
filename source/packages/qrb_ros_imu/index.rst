@@ -88,11 +88,14 @@ QuickStart
 
                 cd <qirp_decompressed_workspace>/qirp-sdk/ros_ws/install/qrb_ros_imu
                 tar -czvf qrb_ros_imu.tar.gz include lib share
+                scp qrb_ros_imu.tar.gz root@[ip-addr]:/home/
+                cd <qirp_decompressed_workspace>/qirp-sdk/ros_ws/install/qrb_sensor_client
+                tar -czvf qrb_sensor_client.tar.gz include lib share
+                scp qrb_sensor_client.tar.gz root@[ip-addr]:/home/
                 ssh root@[ip-addr]
                 (ssh) mount -o remount rw /
-                scp qrb_ros_imu.tar.gz root@[ip-addr]:/home/
-                ssh ssh root@[ip-addr]
                 (ssh) tar --no-overwrite-dir --no-same-owner -zxf /home/qrb_ros_imu.tar.gz -C /usr/
+                (ssh) tar --no-overwrite-dir --no-same-owner -zxf /home/qrb_sensor_client.tar.gz -C /usr/
 
       5. Run
 
