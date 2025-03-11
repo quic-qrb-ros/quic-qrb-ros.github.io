@@ -1,6 +1,6 @@
-=================
+==================
 QRB ROS Robot Base
-=================
+==================
 
 Overview
 --------
@@ -108,7 +108,7 @@ Supported Platforms
 .. include:: ../common/supported_platforms.rst
 
 Updates
--------------
+-------
 
 +-----------+--------------------------+
 | Date      | Changes                  |

@@ -24,10 +24,10 @@ Run
     (ssh) ros2 launch qrb_ros_robot_base robot_base.launch.py
 
 Parameters
--------------
+----------
 
 Parameters Definition
-~~~~~~
+~~~~~~~~~~~~~~~~~~~~~
 
 +-------------------------------+-------------------+---------------------+
 | Name                          | Value Description | Default Value       |
@@ -81,7 +81,7 @@ Attention
 - rc_max_angle_speed need <= motion_max_angle_speed
 
 Robot Models
-~~~~~~
+~~~~~~~~~~~~
 
 Change robot model with environment variable:
 
@@ -95,7 +95,7 @@ Current support robot models:
 - Circle Robot base: `robot_base_mini`
 
 Parameters Configuration
-~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 Change config yaml file
 

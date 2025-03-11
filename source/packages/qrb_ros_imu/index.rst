@@ -64,9 +64,7 @@ QuickStart
                 mkdir -p <qirp_decompressed_workspace>/qirp-sdk/ros_ws
                 cd <qirp_decompressed_workspace>/qirp-sdk/ros_ws
 
-                git clone https://github.com/quic-qrb-ros/lib_mem_dmabuf.git
                 git clone https://github.com/quic-qrb-ros/qrb_ros_imu.git
-                git clone https://github.com/quic-qrb-ros/qrb_ros_transport.git
 
       3. Build source code with QCLINUX SDK
 
@@ -136,5 +134,3 @@ Updates
       - Added build in QCLINUX SDK
     * - 2024-2-5
       - Initial release
-   
-      

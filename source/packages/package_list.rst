@@ -38,3 +38,6 @@
     * - :doc:`System Monitor </packages/qrb_ros_system_monitor/index>`
       - `qrb_ros_system_monitor <https://github.com/quic-qrb-ros/qrb_ros_system_monitor>`_
       - Qualcomm Robotics System Monitor ROS node.
+    * - :doc:`Battery </packages/qrb_ros_battery/index>`
+      - `qrb_ros_battery <https://github.com/quic-qrb-ros/qrb_ros_battery>`_
+      - Qualcomm Robotics platform Battery ROS node.
