@@ -2,7 +2,7 @@
 Getting started
 ===============
 
-The QRB ROS suite provides ROS interfaces for developers to access 
+The QRB ROS suite provides ROS interfaces for developers to access
 Qualcomm robotics platform capabilities, including camera, sensors and so on.
 
 QRB ROS uses standard ROS interfaces on input and output topics, making
@@ -15,8 +15,13 @@ This information provides instructions on how to download and use the robotics p
 
 .. toctree::
    :maxdepth: 1
-   
-    Environment setup <./environment_setup.rst>
+
+    QIRP SDK setup <./environment_setup.rst>
+
+.. toctree::
+   :maxdepth: 1
+
+    Docker setup <./docker_setup.rst>
 
 Tutorial
 -------------------
@@ -24,7 +29,7 @@ This tutorial teaches you how to run the first QRB ROS application. It is intend
 
 .. toctree::
    :maxdepth: 1
-   
+
     First example <./first_example.rst>
 
 
