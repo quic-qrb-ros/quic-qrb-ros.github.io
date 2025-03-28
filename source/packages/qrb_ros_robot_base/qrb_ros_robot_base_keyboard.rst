@@ -24,7 +24,7 @@ Run
     (ssh) ros2 run qrb_ros_robot_base_keyboard robot_base
 
 Use keyboard to control
--------------
+-----------------------
 
 .. code:: bash
 

@@ -20,81 +20,89 @@ These localization applications have more precise performance after integrating 
 This package leverages type adaption and intra process communication to optimize message formats and dramatically 
 accelerate the communication between participating nodes.
 
-Build
------
+QuickStart
+----------
 
-Currently, we only support use QCLINUX to build
+.. tabs::
 
-1. Set up environment following the `Set up the cross-compile environment <https://docs.qualcomm.com/bundle/publicresource/topics/80-65220-2/develop-your-first-application_6.html>`_ of the *QIRP User Guide*.
+   .. tab:: QRB ROS Docker
 
-2. Create ``ros_ws`` directory in ``<qirp_decompressed_workspace>/qirp-sdk/``.
+      1. Setup Docker on device: `Docker Setup <../../getting_started/docker_setup.html>`__.
 
-3. Clone this repository under ``<qirp_decompressed_workspace>/qirp-sdk/ros_ws``
-    
-.. code:: bash
+      2. Download source code
 
-    git clone https://github.com/quic-qrb-ros/lib_mem_dmabuf.git
-    git clone https://github.com/quic-qrb-ros/qrb_ros_transport.git
-    git clone https://github.com/quic-qrb-ros/qrb_ros_imu.git
+         .. code:: bash
 
-4. Build this project.
+                cd ${QRB_ROS_WS}/src
+                git clone https://github.com/quic-qrb-ros/lib_mem_dmabuf.git
+                git clone https://github.com/quic-qrb-ros/qrb_ros_imu.git
+                git clone https://github.com/quic-qrb-ros/qrb_ros_transport.git
 
-.. code:: bash
-    
-    export AMENT_PREFIX_PATH="${OECORE_TARGET_SYSROOT}/usr;${OECORE_NATIVE_SYSROOT}/usr"
-    export PYTHONPATH=${PYTHONPATH}:${OECORE_TARGET_SYSROOT}/usr/lib/python3.10/site-packages
+      3. Build packages
 
-    colcon build --merge-install --cmake-args \
-      -DPython3_ROOT_DIR=${OECORE_TARGET_SYSROOT}/usr \
-      -DPython3_NumPy_INCLUDE_DIR=${OECORE_TARGET_SYSROOT}/usr/lib/python3.10/site-packages/numpy/core/include \
-      -DPYTHON_SOABI=cpython-310-aarch64-linux-gnu -DCMAKE_STAGING_PREFIX=$(pwd)/install \
-      -DCMAKE_PREFIX_PATH=$(pwd)/install/share \
-      -DBUILD_TESTING=OFF
+         .. code:: bash
 
-5. Push to the device and install.
+            colcon build
 
-.. code:: bash
-    
-    cd ``<qirp_decompressed_workspace>/qirp-sdk/ros_ws/install``
-    tar czvf qrb_ros_imu.tar.gz lib share
-    scp qrb_ros_imu.tar.gz root@[ip-addr]:/opt/
-    ssh root@[ip-addr]
-    (ssh) tar -zxf /opt/qrb_ros_imu.tar.gz -C /opt/qcom/qirp-sdk/usr/
+      4. Run
 
-Run
----
+        .. code:: bash
 
-This package supports running it directly from the command or by dynamically adding it to the ros2 component container.
+            cd ${QRB_ROS_WS}/src
 
-Run with command
-~~~~~~~~~~~~~~~~
+            source install/local_setup.sh
+            ros2 run qrb_ros_imu imu_node
 
-1. Source this file to set up the environment on your device:
+   .. tab:: QIRP SDK
 
-.. code:: bash
+      1. Setup QCLINUX SDK environments: Reference :doc:`Getting Started - Environment Setup </getting_started/environment_setup>`
 
-    ssh root@[ip-addr]
-    (ssh) export HOME=/opt
-    (ssh) source /opt/qcom/qirp-sdk/qirp-setup.sh
-    (ssh) export ROS_DOMAIN_ID=xx
-    (ssh) source /usr/bin/ros_setup.bash
+      2. Create workspace in QCLINUX SDK environment and clone source code
 
-2. Use this command to run this package
+         .. code:: bash
 
-.. code:: bash
+                mkdir -p <qirp_decompressed_workspace>/qirp-sdk/ros_ws
+                cd <qirp_decompressed_workspace>/qirp-sdk/ros_ws
 
-    (ssh) ros2 run qrb_ros_imu imu_node
+                git clone https://github.com/quic-qrb-ros/qrb_ros_imu.git
 
-Dynamically add it to the ros2 component container
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      3. Build source code with QCLINUX SDK
 
-.. code:: python
+         .. code:: bash
 
-    ComposableNode(
-        package='qrb_ros_imu',
-        plugin='qrb_ros::imu::ImuComponent',
-        name='imu'
-    )
+                export AMENT_PREFIX_PATH="${OECORE_NATIVE_SYSROOT}/usr:${OECORE_TARGET_SYSROOT}/usr"
+                export PYTHONPATH=${OECORE_NATIVE_SYSROOT}/usr/lib/python3.12/site-packages/:${OECORE_TARGET_SYSROOT}/usr/lib/python3.12/site-packages/
+
+                colcon build --continue-on-error --cmake-args \
+                  -DCMAKE_TOOLCHAIN_FILE=${OE_CMAKE_TOOLCHAIN_FILE} \
+                  -DPYTHON_EXECUTABLE=${OECORE_NATIVE_SYSROOT}/usr/bin/python3 \
+                  -DPython3_NumPy_INCLUDE_DIR=${OECORE_NATIVE_SYSROOT}/usr/lib/python3.12/site-packages/numpy/core/include \
+                  -DCMAKE_MAKE_PROGRAM=/usr/bin/make \
+                  -DBUILD_TESTING=OFF
+
+      4. Install ROS package to device
+
+         .. code:: bash
+
+                cd <qirp_decompressed_workspace>/qirp-sdk/ros_ws/install/qrb_ros_imu
+                tar -czvf qrb_ros_imu.tar.gz include lib share
+                scp qrb_ros_imu.tar.gz root@[ip-addr]:/home/
+                cd <qirp_decompressed_workspace>/qirp-sdk/ros_ws/install/qrb_sensor_client
+                tar -czvf qrb_sensor_client.tar.gz include lib share
+                scp qrb_sensor_client.tar.gz root@[ip-addr]:/home/
+                ssh root@[ip-addr]
+                (ssh) mount -o remount rw /
+                (ssh) tar --no-overwrite-dir --no-same-owner -zxf /home/qrb_ros_imu.tar.gz -C /usr/
+                (ssh) tar --no-overwrite-dir --no-same-owner -zxf /home/qrb_sensor_client.tar.gz -C /usr/
+
+      5. Run
+
+        .. code:: bash
+
+            (ssh) export HOME=/home
+            (ssh) setenforce 0
+            (ssh) source /usr/bin/ros_setup.sh && source /usr/share/qirp-setup.sh
+            (ssh) ros2 run qrb_ros_imu imu_node
 
 
 Packages
@@ -126,5 +134,3 @@ Updates
       - Added build in QCLINUX SDK
     * - 2024-2-5
       - Initial release
-   
-      
