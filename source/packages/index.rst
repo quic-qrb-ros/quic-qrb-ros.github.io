@@ -18,6 +18,7 @@ Use this index to find the QRB ROS packages you need and examples on how to use 
     ./qrb_ros_nn_inference/index.rst
     ./libqrc/index.rst
     ./qrb_ros_audio_common/index.rst
+    ./qrb_ros_audio_service/index.rst
     ./qrb_ros_robot_base/index.rst
     ./qrb_ros_system_monitor/index.rst
     ./qrb_ros_battery/index.rst
